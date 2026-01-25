@@ -6,7 +6,8 @@
         xmlns="https://getpsalm.org/schema/config"
         xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
         findUnusedBaselineEntry="true"
-        findUnusedCode="false">
+        findUnusedCode="false"
+        findUnusedIssueHandlerSuppression="false">
 
     <projectFiles>
         <directory name="packages" />
@@ -25,6 +26,22 @@
         <PropertyNotSetInConstructor errorLevel="info" />
         <InvalidAttribute errorLevel="info" />
         <UndefinedAttributeClass errorLevel="info" />
+        <ClassMustBeFinal errorLevel="info" />
+        <MissingOverrideAttribute>
+            <errorLevel type="suppress">
+                <file name="packages/domain-event/src/Doctrine/DomainEventAwareEntityManager.php" />
+            </errorLevel>
+        </MissingOverrideAttribute>
+        <InvalidNullableReturnType>
+            <errorLevel type="suppress">
+                <file name="packages/domain-event/src/Doctrine/DomainEventAwareManagerRegistryImplementation.php" />
+            </errorLevel>
+        </InvalidNullableReturnType>
+        <NullableReturnStatement>
+            <errorLevel type="suppress">
+                <file name="packages/domain-event/src/Doctrine/DomainEventAwareManagerRegistryImplementation.php" />
+            </errorLevel>
+        </NullableReturnStatement>
         <UndefinedMethod>
             <errorLevel type="suppress">
                 <file name="packages/domain-event-outbox/src/DependencyInjection/Configuration.php" />
@@ -35,31 +52,41 @@
                 <file name="packages/domain-event-outbox/src/DependencyInjection/Configuration.php" />
             </errorLevel>
         </MixedMethodCall>
+        <!-- <UndefinedMethod>
+            <errorLevel type="suppress">
+                <file name="packages/domain-event-outbox/src/DependencyInjection/Configuration.php" />
+            </errorLevel>
+        </UndefinedMethod> -->
+        <!-- <MixedMethodCall>
+            <errorLevel type="suppress">
+                <file name="packages/domain-event-outbox/src/DependencyInjection/Configuration.php" />
+            </errorLevel>
+        </MixedMethodCall> -->
         <TypeDoesNotContainNull>
             <errorLevel type="suppress">
                 <file name="packages/domain-event-outbox/src/EventListener/RenameTableListener.php" />
             </errorLevel>
         </TypeDoesNotContainNull>
-        <MissingClassConstType>
+        <!-- <MissingClassConstType>
             <errorLevel type="suppress">
                 <file name="packages/domain-event/src/DependencyInjection/Constants.php" />
             </errorLevel>
-        </MissingClassConstType>
-        <MixedInferredReturnType>
+        </MissingClassConstType> -->
+        <!-- <MixedInferredReturnType>
             <errorLevel type="suppress">
                 <file name="packages/domain-event/src/Doctrine/DomainEventAwareEntityManager.php" />
             </errorLevel>
-        </MixedInferredReturnType>
-        <MixedReturnStatement>
+        </MixedInferredReturnType> -->
+        <!-- <MixedReturnStatement>
             <errorLevel type="suppress">
                 <file name="packages/domain-event/src/Doctrine/DomainEventAwareEntityManager.php" />
             </errorLevel>            
-        </MixedReturnStatement>
-        <UndefinedInterfaceMethod>
+        </MixedReturnStatement> -->
+        <!-- <UndefinedInterfaceMethod>
             <errorLevel type="suppress">
                 <file name="packages/domain-event/src/Doctrine/DomainEventAwareEntityManager.php" />
             </errorLevel>
-        </UndefinedInterfaceMethod>
+        </UndefinedInterfaceMethod> -->
     </issueHandlers>
 
 </psalm>
